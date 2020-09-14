@@ -1,0 +1,5 @@
+bin/debug
+*.sublime-project
+*.sublime-workspace
+*.makefile.swp
+.makefile.swp
