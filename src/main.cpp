@@ -7,20 +7,14 @@
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
 	#include <Windows.h>
+	#define SLEEP(x) Sleep(x);
 #elif __unix__
 	#include <unistd.h>
+	#define SLEEP(x) usleep(x)
 #endif
 #include "RenderWindow.hpp"
 #include "Entity.hpp"
 
-void pause(double amount)
-{
-	#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-		Sleep(amount);
-	#elif __unix__
-		sleep(amount);
-	#endif
-}
 
 Vector2 getNewFruitPos() {
 	return Vector2((rand() % 20) * 16, (rand() % 20) * 16);
@@ -183,7 +177,8 @@ int main(int argc, char* args[])
 		window.render(man);
 		window.render(fruit);
 		window.display();
-		pause(180);
+		SLEEP(52000);
+		// pause(180);
 	} // end is running
 
 	window.cleanUp();

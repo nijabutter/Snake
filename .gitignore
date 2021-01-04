@@ -1,3 +1,4 @@
+.gitignore
 bin/debug
 *.sublime-project
 *.sublime-workspace
